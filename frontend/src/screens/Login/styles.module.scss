@@ -1,0 +1,35 @@
+.loginForm {
+    width: 60%;
+    min-width: 300px;
+}
+
+.header {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 300;
+    .IPS {
+        color: #52DA3D;
+        font-weight: bold;
+    }
+}
+
+.login {
+    border-top: 1px solid #808080;
+    font-size: 30px;
+    margin-top: 20px;
+    padding: 20px 0 20px 10px;
+}
+
+.noAccount {
+    margin-top: 20px;
+    text-align: center;
+    a {
+        color: #52DA3D;
+        font-weight: bold;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

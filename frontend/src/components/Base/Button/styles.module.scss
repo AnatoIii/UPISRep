@@ -1,0 +1,20 @@
+.button {
+    border-radius: 20px; 
+    height: 40px;
+    margin: 10px;
+    border: none;
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 0px 10px 1px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 0px 10px 1px rgba(34, 60, 80, 0.2);
+    cursor: pointer;
+}
+
+.primary {
+    background: #52DA3D;
+    color: #f8f8f8;
+
+    &:hover {
+        background: #2FBB21;
+        color: white;
+    }
+}
