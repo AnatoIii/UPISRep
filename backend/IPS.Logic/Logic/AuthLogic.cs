@@ -58,14 +58,15 @@ namespace IPS.Logic.Logic
                     Exception = "User with provided email already exist"
                 };
             }
+            var salt = PasswordHasher.GenerateSalt();
             user = new UserModel
             {
                 Id = Guid.NewGuid(),
                 Email = registerRequest.Email,
                 FirstName = registerRequest.FirstName,
                 LastName = registerRequest.LastName,
-                PasswordSalt = registerRequest.Password,
-                PasswordHash = PasswordHasher.HashPassword(registerRequest.Password, registerRequest.Password)
+                PasswordSalt = salt,
+                PasswordHash = PasswordHasher.HashPassword(registerRequest.Password, salt)
             };
             _userRepository.AddUser(user);
             var token = GenerateToken(user);
