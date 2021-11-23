@@ -1,0 +1,43 @@
+.registerForm {
+    width: 60%;
+    min-width: 300px;
+    
+    // overflow-y: scroll;
+}
+
+.header {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 300;
+    .IPS {
+        color: #52DA3D;
+        font-weight: bold;
+    }
+}
+
+.signUp {
+    border-top: 1px solid #808080;
+    font-size: 30px;
+    margin-top: 20px;
+    padding: 10px 0 10px 10px;
+}
+
+.hasAccount {
+    margin-top: 20px;
+    text-align: center;
+    a {
+        color: #52DA3D;
+        font-weight: bold;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.invalidfeedback {
+    color: red; 
+    padding-left:20px;
+    font-size: small;
+}

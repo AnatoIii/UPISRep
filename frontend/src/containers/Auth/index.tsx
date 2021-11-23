@@ -17,7 +17,7 @@ export const LoginPage: React.FunctionComponent<ILoginPageProps> = ({
         <div className={styles.rightPart}>
           <div className={styles.picture}>
             <p className={styles.IPS}>IPS</p>
-            <p className={styles.text}>Lorem ipsum dolor</p>
+            <p className={styles.text}>Interactive Presentation service</p>
           </div>
         </div>
       </div>      

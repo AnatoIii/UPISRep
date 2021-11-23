@@ -2,6 +2,7 @@ import { NavigateFunction } from "react-router";
 import { Configuration } from "../../Configuration";
 import { buildBaseHttpHeaders } from "../helpers/httpHelper";
 import { LoginRequest } from "../models/LoginRequest";
+import { RegisterRequest } from "../models/RegisterRequest";
 
 class AuthService {
     getToken() {
@@ -22,6 +23,27 @@ class AuthService {
         return fetch(`${Configuration.webApiUrl}/user/login`, {
             method: 'POST',
             body:  JSON.stringify(loginRequst),
+            headers: buildBaseHttpHeaders()
+        }).then(response => {
+            if (response.status === 200) {
+                response.json().then(data => {
+                    this.processLogin(data);
+                    navigate('/main');
+                })
+            }
+            else {
+                throw response;
+            }
+        },
+        error => {
+            console.log(error);
+        });
+    }
+
+    register(registerRequst: RegisterRequest, navigate: NavigateFunction) {
+        return fetch(`${Configuration.webApiUrl}/user/register`, {
+            method: 'POST',
+            body:  JSON.stringify(registerRequst),
             headers: buildBaseHttpHeaders()
         }).then(response => {
             if (response.status === 200) {

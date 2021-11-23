@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnyIfEmpty } from 'react-redux';
 import styles from './styles.module.scss';
 
 export enum IButtonType {
@@ -12,7 +13,7 @@ export interface IProps {
   width?: number | string;
   height?: number | string;
   loading?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const Button: React.FunctionComponent<IProps> = ({

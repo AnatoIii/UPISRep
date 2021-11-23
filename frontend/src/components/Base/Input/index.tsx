@@ -8,6 +8,8 @@ export interface IProps {
   value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   type?: string;
+  name?: string;
+  className?: string;
 }
 
 export const Input: React.FunctionComponent<IProps> = ({
@@ -16,10 +18,12 @@ export const Input: React.FunctionComponent<IProps> = ({
   height,
   value,
   onChange,
-  type
+  type, 
+  name,
+  className
 }: IProps) => {
   return (
-    <input type={type} value={value} onChange={onChange} style={{ width: width, height }} className={styles.input} placeholder={placeholder} />
+    <input type={type} name={name} value={value} onChange={onChange} style={{ width: width, height }} className={'${styles.input} ${className}'} placeholder={placeholder} />
   );
 };
 
