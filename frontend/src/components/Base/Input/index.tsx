@@ -10,6 +10,7 @@ export interface IProps {
   type?: string;
   name?: string;
   className?: string;
+  props?: any;
 }
 
 export const Input: React.FunctionComponent<IProps> = ({
@@ -20,10 +21,11 @@ export const Input: React.FunctionComponent<IProps> = ({
   onChange,
   type, 
   name,
-  className
+  className,
+  props
 }: IProps) => {
   return (
-    <input type={type} name={name} value={value} onChange={onChange} style={{ width: width, height }} className={'${styles.input} ${className}'} placeholder={placeholder} />
+    <input type={type} value={value} onChange={onChange} style={{ width: width, height }} className={'${styles.input} ${className}'} placeholder={placeholder} {...props}/>
   );
 };
 
