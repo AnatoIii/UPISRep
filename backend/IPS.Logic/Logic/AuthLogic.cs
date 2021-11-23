@@ -48,6 +48,34 @@ namespace IPS.Logic.Logic
             };
         }
 
+        public RegisterResponse RegisterUser(RegisterRequest registerRequest)
+        {
+            var user = _userRepository.GetUserByEmail(registerRequest.Email);
+            if (user != null)
+            {
+                return new RegisterResponse
+                {
+                    Exception = "User with provided email already exist"
+                };
+            }
+            user = new UserModel
+            {
+                Id = Guid.NewGuid(),
+                Email = registerRequest.Email,
+                FirstName = registerRequest.FirstName,
+                LastName = registerRequest.LastName,
+                PasswordSalt = registerRequest.Password,
+                PasswordHash = PasswordHasher.HashPassword(registerRequest.Password, registerRequest.Password)
+            };
+            _userRepository.AddUser(user);
+            var token = GenerateToken(user);
+
+            return new RegisterResponse
+            {
+                Token = token
+            };
+        }
+
         private string GenerateToken(UserModel user)
         {
             var claims = new[] {

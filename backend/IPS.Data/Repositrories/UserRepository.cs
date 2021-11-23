@@ -18,5 +18,10 @@ namespace IPS.Data.Repositrories
         {
             return _dbContext.Users.FirstOrDefault(el => el.Email == email);
         }
+
+        public void AddUser(UserModel user)
+        {
+            _dbContext.Users.Add(user);
+        }
     }
 }

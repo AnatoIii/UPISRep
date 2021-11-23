@@ -25,5 +25,17 @@ namespace IPS.Controllers
 
             return Ok(loginStatus.Token);
         }
+
+        [HttpPost("register")]
+        public ActionResult Register([FromBody] RegisterRequest registerRequest)
+        {
+            var registerStatus = _authLogic.RegisterUser(registerRequest);
+            if (registerStatus.Exception != null)
+            {
+                return BadRequest(registerStatus.Exception);
+            }
+
+            return Ok(registerStatus.Token);
+        }
     }
 }
