@@ -46,7 +46,6 @@ const Register: React.FunctionComponent = () => {
     acceptTerms: Yup.bool().oneOf([true], 'Accept Terms is required')
   });
 
-
   const {
     register,
     handleSubmit,
@@ -58,37 +57,11 @@ const Register: React.FunctionComponent = () => {
 
   const onSubmit = (data: UserSubmitForm) => {
     console.log(JSON.stringify(data, null, 2));
+    authService.register({firstName: data.firstName, lastName:data.lastName, email:data.email, password:data.password}, navigate);
   };
   
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confpassword, setCPassword] = useState('');
   const navigate = useNavigate();
-  const [fields, setFields] = useState({});
   
-  const handleInputChange = (event: any) => {
-    // event.preventDefault();
-    console.log(event);
-    setFields(
-      {...fields, [event.target.name]: event.target.value}
-    )
-  };
-
-  const processSignUp = (event : any) => {
-    event.preventDefault();
-    console.log('sign up')
-    // validate(validators, value)
-    // setState({
-    //   validation,
-    // });
-    const submitted = true;
-    
-      authService.register({firstName: fname, lastName:lname, email:email, password:password}, navigate);//reaches here if form validates successfully...
-    
-  };
-
   const getRegisterForm = () => (
     <form className={styles.registerForm} onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.header}>Sign up</div>
@@ -110,7 +83,7 @@ const Register: React.FunctionComponent = () => {
 
        <input 
          {...register('password')} className={`form-control ${errors.password ? 'is-invalid' : ''}`}
-       placeholder='Password' width="100%" type="string" name="password" />
+       placeholder='Password' width="100%" type="password" name="password" />
        <div className={styles.invalidfeedback}>{errors.password?.message}</div>
 
        <input 
