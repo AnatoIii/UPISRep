@@ -6,5 +6,6 @@ namespace IPS.Logic.Logic.Abstractions
     public interface IAuthLogic
     {
         LoginResponse LoginUser(LoginRequest loginRequest);
+        RegisterResponse RegisterUser(RegisterRequest registerRequest);
     }
 }

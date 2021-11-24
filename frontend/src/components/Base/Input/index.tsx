@@ -1,16 +1,12 @@
 import React, { ChangeEvent } from 'react';
 import styles from './styles.module.scss';
 
-export interface IProps {
-  placeholder?: string;
+export interface IProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   width?: number | string;
   height?: number | string;
   value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-  type?: string;
-  name?: string;
   className?: string;
-  props?: any;
 }
 
 export const Input: React.FunctionComponent<IProps> = ({
@@ -19,13 +15,12 @@ export const Input: React.FunctionComponent<IProps> = ({
   height,
   value,
   onChange,
-  type, 
-  name,
   className,
-  props
+  ...rest
 }: IProps) => {
+  console.log(rest)
   return (
-    <input type={type} value={value} onChange={onChange} style={{ width: width, height }} className={'${styles.input} ${className}'} placeholder={placeholder} {...props}/>
+    <input value={value} onChange={onChange} style={{ width: width, height }} className={`${styles.input} ${className}`} placeholder={placeholder} {...rest}/>
   );
 };
 

@@ -22,9 +22,6 @@ type UserSubmitForm = {
 };
 
 const Register: React.FunctionComponent = () => {
-
-
-
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required('Firstname is required'),
     lastName: Yup.string().required('Lastname is required'),
@@ -70,54 +67,6 @@ const Register: React.FunctionComponent = () => {
   const [confpassword, setCPassword] = useState('');
   const navigate = useNavigate();
   const [fields, setFields] = useState({});
-
-  // const validator = new FormValidator([
-  //   {
-  //     field: "fname",
-  //     method: "isEmpty",
-  //     validWhen: false,
-  //     message: "Enter full name.",
-  //   },
-  //   // {
-  //   //   field: "email",
-  //   //   method: "isEmpty",
-  //   //   validWhen: false,
-  //   //   message: "Enter your email address.",
-  //   // },
-  //   // {
-  //   //   field: "email",
-  //   //   method: "isEmail",
-  //   //   validWhen: true,
-  //   //   message: "Enter valid email address.",
-  //   // },
-  //   // {
-  //   //   field: "phone",
-  //   //   method: "isEmpty",
-  //   //   validWhen: false,
-  //   //   message: "Enter a phone number.",
-  //   // },
-  //   // {
-  //   //   field: "password",
-  //   //   method: "isEmpty",
-  //   //   validWhen: false,
-  //   //   message: "Enter password.",
-  //   // },
-  //   // {
-  //   //   field: "password_confirmation",
-  //   //   method: "isEmpty",
-  //   //   validWhen: false,
-  //   //   message: "Enter Password confirmation.",
-  //   // },
-  //   // {
-  //   //   field: "password_confirmation",
-  //   //   // method: passwordMatch, // notice that we are passing a custom function here
-  //   //   validWhen: true,
-  //   //   message: "Password and password confirmation do not match.",
-  //   // },
-  // ]);
-
- 
-
   
   const handleInputChange = (event: any) => {
     // event.preventDefault();
@@ -139,12 +88,6 @@ const Register: React.FunctionComponent = () => {
       authService.register({firstName: fname, lastName:lname, email:email, password:password}, navigate);//reaches here if form validates successfully...
     
   };
-
-  console.log(errors);
-
-  
-
-  
 
   const getRegisterForm = () => (
     <form className={styles.registerForm} onSubmit={handleSubmit(onSubmit)}>
