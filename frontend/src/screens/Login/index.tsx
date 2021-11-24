@@ -5,18 +5,20 @@ import Input from '../../components/Base/Input';
 import Auth from '../../containers/Auth';
 import authService from '../../logic/services/AuthService';
 import styles from './styles.module.scss';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { toastify } from "../../components/Tostify/Tostify";
 
 export const Login: React.FunctionComponent = () => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
   const processLogin = () => {
     if (login === '' || password === '') {
       return;
     }
-    
     authService.login({ email: login, password }, navigate);
+    toastify("Incorrect login or password!", 'error');
   }
 
   const getLoginForm = () => (
@@ -25,6 +27,9 @@ export const Login: React.FunctionComponent = () => {
       <p className={styles.login}>Log in</p>
       <Input placeholder='Email' width="100%" onChange={e => setLogin(e.target.value)} />
       <Input placeholder='Password' width="100%" type='password' onChange={e => setPassword(e.target.value)} />
+      <div className="container">
+        <ToastContainer/>
+      </div>
       <Button text='SIGN IN' width="100%" type={IButtonType.Primary} onClick={processLogin} />
       <p className={styles.noAccount}>Don't have an account? <Link to="/register">Sign up now</Link></p>
     </div>
