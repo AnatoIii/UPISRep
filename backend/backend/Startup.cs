@@ -17,7 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore;
 namespace backend
 {
     public class Startup
@@ -40,9 +40,7 @@ namespace backend
 
             services.AddTransient<IAuthLogic, AuthLogic>();
             services.AddTransient<IDataSeeder, DataSeeder>();
-            services.AddTransient<IUserRepository, UserRepository>();
-
-            services.AddSingleton<MainDbContext>(); // HERE SHOULD BE DB
+            services.AddTransient<IUserRepository, UserRepository>();            
 
             services.AddCors(options =>
             {
@@ -52,6 +50,7 @@ namespace backend
                                       builder.AllowAnyHeader().AllowAnyHeader().AllowAnyOrigin();
                                   });
             });
+           services.AddDbContext<MainDbContext>(options => options.UseSqlServer(@"Server=localhost;Database=master;Trusted_Connection=True;", b => b.MigrationsAssembly("IPS")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
