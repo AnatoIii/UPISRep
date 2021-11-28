@@ -15,6 +15,10 @@ class AuthService {
         }
     }
 
+    isAuthentificated() {
+        return this.getToken() !== null;
+    }
+
     processLogin(token: string) {
         localStorage.setItem('token', token);
     }

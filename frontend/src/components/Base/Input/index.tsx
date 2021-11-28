@@ -18,7 +18,6 @@ export const Input: React.FunctionComponent<IProps> = ({
   className,
   ...rest
 }: IProps) => {
-  console.log(rest)
   return (
     <input value={value} onChange={onChange} style={{ width: width, height }} className={`${styles.input} ${className}`} placeholder={placeholder} {...rest}/>
   );

@@ -18,7 +18,6 @@ export const Login: React.FunctionComponent = () => {
       return;
     }
     authService.login({ email: login, password }, navigate);
-    toastify("Incorrect login or password!", 'error');
   }
 
   const getLoginForm = () => (
