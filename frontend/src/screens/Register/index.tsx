@@ -5,6 +5,9 @@ import Auth from '../../containers/Auth';
 import authService from '../../logic/services/AuthService';
 import styles from './styles.module.scss';
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -40,8 +43,8 @@ const Register: React.FunctionComponent = () => {
       ),
     confirmPassword: Yup.string()
       .required('Confirm Password is required')
-      .oneOf([Yup.ref('password'), null], 'Confirm Password does not match'),
-    acceptTerms: Yup.bool().oneOf([true], 'Accept Terms is required')
+      .oneOf([Yup.ref('password'), null], 'Confirm Password does not match')
+    //acceptTerms: Yup.bool().oneOf([true], 'Accept Terms is required')
   });
 
   const {
@@ -87,6 +90,9 @@ const Register: React.FunctionComponent = () => {
          {...register('confirmPassword')} className={`form-control ${errors.confirmPassword ? 'is-invalid' : ''}`}
        placeholder='Confirm password' width="100%" type="password" name="confirmPassword" />
        <div className={styles.invalidfeedback}>{errors.confirmPassword?.message}</div>
+       <div className="container">
+        <ToastContainer/>
+      </div>
       <Button text='SIGN UP' width="100%" type={IButtonType.Primary} />
       <p className={styles.hasAccount}>Already have an account? <Link to="/login">Sign in</Link></p>
     </form>

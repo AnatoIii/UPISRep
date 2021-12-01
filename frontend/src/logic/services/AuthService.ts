@@ -3,6 +3,8 @@ import { Configuration } from "../../Configuration";
 import { buildBaseHttpHeaders } from "../helpers/httpHelper";
 import { LoginRequest } from "../models/LoginRequest";
 import { RegisterRequest } from "../models/RegisterRequest";
+import "react-toastify/dist/ReactToastify.css";
+import { toastify } from "../../components/Tostify/Tostify";
 
 class AuthService {
     getToken() {
@@ -36,6 +38,7 @@ class AuthService {
                 })
             }
             else {
+                toastify("Incorrect login or password!", 'error');
                 throw response;
             }
         },
@@ -57,6 +60,7 @@ class AuthService {
                 })
             }
             else {
+                toastify("User with such email is registered already", 'error');
                 throw response;
             }
         },
