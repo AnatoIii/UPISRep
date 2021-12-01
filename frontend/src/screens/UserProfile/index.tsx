@@ -1,7 +1,4 @@
-import React, { useState } from 'react';
-import NewPresentation from '../../logic/models/Presentations/NewPresentation';
-import Presentation from '../../logic/models/Presentations/Presentation';
-import presentationsService from '../../logic/services/PresentationService';
+import React from 'react';
 import styles from './styles.module.scss';
 import { ReactComponent as FaceIcon } from '../../assets/icons/face.svg';
 import { ReactComponent as EditIcon } from '../../assets/icons/pencil.svg';
@@ -10,13 +7,6 @@ import { Link } from 'react-router-dom';
 
 
 export const ProfilePage: React.FunctionComponent = () => {
-  const [presentations, setPresentations] = useState<Presentation[]>([]);
-
-  const onSubmit = (presentation: NewPresentation) => {
-    presentationsService.createPresentation(presentation).then((el: Presentation) => {
-      setPresentations([el, ...presentations]);
-    })
-  };
   // const [photo, setPhoto] = useState('');
   // const [fname, setfname] = useState('');
   // const [lname, setlname] = useState('');
@@ -43,7 +33,7 @@ export const ProfilePage: React.FunctionComponent = () => {
             {/* <EditUserData/> */}
           
           <button className={styles.btnChangePassword}>
-            <img src={pswIcon}  />
+            <img src={pswIcon} alt='' />
             <span font-size='18px'>Change password</span>
           </button>
 
