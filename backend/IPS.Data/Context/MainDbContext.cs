@@ -24,5 +24,6 @@ namespace IPS.Data.Context
         public DbSet<PictureObject> PictureObjects { get; set; }
         public DbSet<TextBoxObject> TextBoxObject { get; set; }
         public DbSet<Slide> Slide { get; set; }
+        public DbSet<GuidLink> GuidLinks { get; set; } 
     }
 }

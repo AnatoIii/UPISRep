@@ -18,6 +18,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using IPS.Models.DataModels;
+
 namespace backend
 {
     public class Startup
@@ -41,6 +43,7 @@ namespace backend
             services.AddTransient<IAuthLogic, AuthLogic>();
             services.AddTransient<IDataSeeder, DataSeeder>();
             services.AddTransient<IUserRepository, UserRepository>();            
+            services.AddTransient(typeof(IRepository<GuidLink,string>), typeof(UnicLinkGeneratorRepository));
 
             services.AddCors(options =>
             {
