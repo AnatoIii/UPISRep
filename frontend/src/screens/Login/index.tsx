@@ -7,7 +7,6 @@ import authService from '../../logic/services/AuthService';
 import styles from './styles.module.scss';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { toastify } from "../../components/Tostify/Tostify";
 
 export const Login: React.FunctionComponent = () => {
   const [login, setLogin] = useState('');

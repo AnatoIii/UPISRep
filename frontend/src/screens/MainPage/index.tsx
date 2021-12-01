@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import Button from '../../components/Base/Button';
-import Input from '../../components/Base/Input';
-import IPSModal from '../../components/Base/Modal';
 import NewPresentation from '../../logic/models/Presentations/NewPresentation';
 import Presentation from '../../logic/models/Presentations/Presentation';
 import presentationsService from '../../logic/services/PresentationService';
@@ -19,7 +16,7 @@ export const MainPage: React.FunctionComponent = () => {
 
   return (
     <>
-      <h1>Here should be main page</h1>
+      <h1 className={styles.header}>Here should be main page</h1>
       <AddPresentation onSubmit={onSubmit} />
 
       {presentations.map(el => <div>{el.name}</div>)}

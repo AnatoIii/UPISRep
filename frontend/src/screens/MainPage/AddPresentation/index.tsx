@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Button from '../../../components/Base/Button';
 import Input from '../../../components/Base/Input';
 import IPSModal from '../../../components/Base/Modal';
 import NewPresentation from '../../../logic/models/Presentations/NewPresentation';

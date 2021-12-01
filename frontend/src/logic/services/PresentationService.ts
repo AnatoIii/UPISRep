@@ -1,9 +1,6 @@
-import { NavigateFunction } from "react-router";
 import { Configuration } from "../../Configuration";
 import { buildBaseHttpHeaders } from "../helpers/httpHelper";
-import { LoginRequest } from "../models/LoginRequest";
 import NewPresentation from "../models/Presentations/NewPresentation";
-import { RegisterRequest } from "../models/RegisterRequest";
 
 class PresentationsService {
     createPresentation(presentation: NewPresentation) {

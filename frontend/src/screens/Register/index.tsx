@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button, { IButtonType } from '../../components/Base/Button';
-import Input from '../../components/Base/Input';
 import Auth from '../../containers/Auth';  
 import authService from '../../logic/services/AuthService';
 import styles from './styles.module.scss';
-import FormValidator from "../../containers/helpers/FormValidator";
 
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -37,7 +35,7 @@ const Register: React.FunctionComponent = () => {
       .min(6, 'Password must be at least 6 characters')
       .max(40, 'Password must not exceed 40 characters')
       .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/,
         "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
       ),
     confirmPassword: Yup.string()
@@ -49,7 +47,6 @@ const Register: React.FunctionComponent = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors }
   } = useForm<UserSubmitForm>({
     resolver: yupResolver(validationSchema)
