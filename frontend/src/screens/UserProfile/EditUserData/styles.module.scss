@@ -1,0 +1,80 @@
+.addNewPresentation {
+    border: none;
+    background: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #2FBB21;
+    border-radius: 20px;
+
+    svg {
+        margin-right: 10px;
+        fill: #2FBB21;
+    }
+
+    &:hover {
+        background: #52DA3D;
+        color: #f3f3f3;
+        svg {
+            fill: #f3f3f3;
+        }
+    }
+}
+
+.addForm {
+    min-width: 500px;
+    padding: 7px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #52DA3D;
+}
+
+.input {
+    width: 100%;
+    margin-bottom: 10px;
+    .label {
+        font-weight: bold;
+        font-size: 12px;
+        margin-left: 10px;
+        margin-bottom: -3px;
+    }
+}
+
+.buttons {
+    margin-right: 12px;
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-end;
+
+    .cancel {
+        padding: 10px;
+        border-radius: 20px;
+        width: 120px;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            background-color: #dddddd;
+        }
+    }
+
+
+    .submit {
+        padding: 10px;
+        background: #52DA3D;
+        border-radius: 20px;
+        margin-left: 20px;
+        width: 120px;
+        border: none;
+        cursor: pointer;
+        &:hover {
+            background-color: #2FBB21;
+        }
+    }
+}
