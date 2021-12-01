@@ -42,8 +42,12 @@ namespace backend
 
             services.AddTransient<IAuthLogic, AuthLogic>();
             services.AddTransient<IDataSeeder, DataSeeder>();
-            services.AddTransient<IUserRepository, UserRepository>();            
+
             services.AddTransient(typeof(IRepository<GuidLink,string>), typeof(UnicLinkGeneratorRepository));
+
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IPresentationRepository, PresentationRepository>();
+            services.AddTransient<IPresentationService, PresentationService>();
 
             services.AddCors(options =>
             {

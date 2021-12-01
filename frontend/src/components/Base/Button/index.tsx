@@ -1,5 +1,4 @@
 import React from 'react';
-import { AnyIfEmpty } from 'react-redux';
 import styles from './styles.module.scss';
 
 export enum IButtonType {

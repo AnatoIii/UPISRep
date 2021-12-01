@@ -11,3 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.ReactModal__Overlay {
+  background: rgba(255, 255, 255, 0.8) !important;
+}
