@@ -5,6 +5,7 @@ import Landing from './screens/Landing';
 import Login from './screens/Login';
 import MainPage from './screens/MainPage';
 import Register from './screens/Register';
+import Profile from './screens/UserProfile';
 import authService from './logic/services/AuthService';
 import Modal from 'react-modal';
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="main" element={isUserAuthentificated ? <MainPage /> : <Login /> } />
+        <Route path="profile" element={isUserAuthentificated ? <Profile /> : <Login /> } />
       </Routes>
     </BrowserRouter>
   );
