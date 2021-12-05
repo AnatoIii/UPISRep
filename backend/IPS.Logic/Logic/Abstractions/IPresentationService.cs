@@ -8,5 +8,8 @@ namespace IPS.Logic.Logic.Abstractions
     {
         IEnumerable<Presentation> GetUserPresenations();
         Presentation CreatePresentation(NewPresentation newPresentation);
+        IEnumerable<Slide> GetPresentationSlides(long presentationId);
+        Slide AddSlideToPresentation(long presentationId);
+        void RemoveSlideFromPresentation(long presentationId, long slideId);
     }
 }

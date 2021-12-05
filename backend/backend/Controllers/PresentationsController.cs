@@ -28,5 +28,23 @@ namespace IPS.Controllers
         {
             return _presentationService.CreatePresentation(newPresentation);
         }
+
+        [HttpGet("{presentationId}/slides")]
+        public IEnumerable<Slide> GetPresentationSlides(long presentationId)
+        {
+            return _presentationService.GetPresentationSlides(presentationId);
+        }
+
+        [HttpPost("{presentationId}/slide")]
+        public Slide AddSlideToPresentation(long presentationId)
+        {
+            return _presentationService.AddSlideToPresentation(presentationId);
+        }
+
+        [HttpPost("{presentationId}/slide/{slideId}/delete")]
+        public void RemoveSlideFromPresentation(long presentationId, long slideId)
+        {
+            _presentationService.RemoveSlideFromPresentation(presentationId, slideId);
+        }
     }
 }

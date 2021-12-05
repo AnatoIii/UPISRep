@@ -19,6 +19,19 @@ namespace IPS.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
+            modelBuilder.Entity("IPS.Models.DataModels.GuidLink", b =>
+                {
+                    b.Property<string>("GUID")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreationDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("GUID");
+
+                    b.ToTable("GuidLinks");
+                });
+
             modelBuilder.Entity("IPS.Models.DataModels.Presentation", b =>
                 {
                     b.Property<long>("Id")
@@ -82,7 +95,7 @@ namespace IPS.Migrations
                         .HasColumnType("bigint")
                         .UseIdentityColumn();
 
-                    b.Property<long?>("PresentationId")
+                    b.Property<long>("PresentationId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
@@ -158,7 +171,9 @@ namespace IPS.Migrations
                 {
                     b.HasOne("IPS.Models.DataModels.Presentation", null)
                         .WithMany("Slides")
-                        .HasForeignKey("PresentationId");
+                        .HasForeignKey("PresentationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("IPS.Models.DataModels.Presentation", b =>
