@@ -17,6 +17,7 @@ namespace IPS.Models.DataModels
     public class Slide
     {
         public virtual long Id { get; set; }
+        public long PresentationId { get; set; }
         public virtual ICollection<PresentationObject> Objects { get; set; }
     }
     public enum PresentationObjectType

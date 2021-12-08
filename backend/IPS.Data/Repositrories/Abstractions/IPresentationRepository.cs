@@ -7,5 +7,8 @@ namespace IPS.Data.Repositrories.Abstractions
     {
         IEnumerable<Presentation> GetAll();
         Presentation CreateNew(Presentation presentation);
+        IEnumerable<Slide> GetPresentationSlides(long presentationId);
+        Slide AddSlideToPresentation(long presentationId);
+        void RemoveSlideFromPresentation(long presentationId, long slideId);
     }
 }
