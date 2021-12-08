@@ -19,7 +19,6 @@ type UserSubmitForm = {
   email: string;
   password: string;
   confirmPassword: string;
-  acceptTerms: boolean;
 };
 
 const Register: React.FunctionComponent = () => {

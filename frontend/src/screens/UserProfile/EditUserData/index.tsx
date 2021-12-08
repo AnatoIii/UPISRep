@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../../../components/Base/Button';
 import Input from '../../../components/Base/Input';
 import IPSModal from '../../../components/Base/Modal';
@@ -22,6 +22,9 @@ export const EditUserData: React.FunctionComponent<IProps> = ({ onSubmit }: IPro
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
+  useEffect(() => {
+    // getUserData()
+  })
   const submit = () => {
     if (email === '') {
       alert('Email can not be empty');
@@ -52,7 +55,7 @@ export const EditUserData: React.FunctionComponent<IProps> = ({ onSubmit }: IPro
             <div className={styles.label}>
               Email
             </div>
-            <Input value={email} onChange={v => setEmail(v.target.value)} placeholder="Last Name" width='96%' />
+            <Input value={email} onChange={v => setEmail(v.target.value)} placeholder="Email" width='96%' />
           </div>
           <div className={styles.input}>
             <div className={styles.label}>

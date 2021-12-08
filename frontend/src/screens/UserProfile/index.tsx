@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './styles.module.scss';
 import { ReactComponent as FaceIcon } from '../../assets/icons/face.svg';
 import pswIcon from '../../assets/icons/password.svg';
@@ -10,15 +10,18 @@ import EditUserData from './EditUserData';
 
 
 export const ProfilePage: React.FunctionComponent = () => {
-  // const [photo, setPhoto] = useState('');
-  // const [fname, setfname] = useState('');
-  // const [lname, setlname] = useState('');
+  const [photo, setPhoto] = useState('');
+  const [fname, setfname] = useState('');
+  const [lname, setlname] = useState('');
   const onSubmit = () => {
 
   };
   const onLoad = ()=>{
 
   }
+  useEffect(() => {
+    // getUserData()
+  })
 
   return (
     <div className={styles.profileForm}>
